@@ -1,3 +1,5 @@
 # jfdzr4-projects-PlewkaMaciej
-[project 1 pizza hut](./pizzahut.png)
-[project 2 budzik](./budzik.jpg)
+## Projekt 1 Pizza hut
+![project 1 pizza hut](./pizzahut.png)
+## Projekt 1 Budzik
+[project 1 budzik](./budzik.jpg)

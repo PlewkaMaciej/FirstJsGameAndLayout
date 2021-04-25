@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-style: "Open Sans",sans-serif;}
+  body {
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+  }
+    .login {
+        background-color: #c8102e;
+        border: none;
+        border-radius: .5rem;
+        color: white;
+        font-family: 0pen\ Sans;
+        font-size: 1.1rem;
+        height: 35px;
+        width: 90px;
+    }
