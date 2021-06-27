@@ -16,6 +16,9 @@ const checkTime = (i) => {
 const getTime = (addedTime, city) => {
   let today = new Date();
   let hours =  checkTime(today.getHours()) + addedTime
+  if (hours>24){
+    hours=hours%24 
+  }
   let minutes =  checkTime(today.getMinutes())
   let seconds =  checkTime(today.getSeconds())
   let actualtime = hours +":"+minutes+":"+seconds
