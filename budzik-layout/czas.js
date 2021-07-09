@@ -15,31 +15,28 @@ const checkTime = (i) => {
 };
 const getTime = (addedTime, city) => {
   let today = new Date();
-  let hours =  checkTime(today.getHours()) + addedTime
-  if (hours>24){
-    hours=hours%24 
+  let hours = checkTime(today.getHours()) + addedTime;
+  if (hours > 24) {
+    hours = hours % 24;
   }
-  let minutes =  checkTime(today.getMinutes())
-  let seconds =  checkTime(today.getSeconds())
-  let actualtime = hours +":"+minutes+":"+seconds
+  let minutes = checkTime(today.getMinutes());
+  let seconds = checkTime(today.getSeconds());
+  let actualtime = hours + ":" + minutes + ":" + seconds;
   city.innerText = actualtime;
 };
-const setAllTimes = ()=>{
-  getTime(0,time);
-  getTime(0,timeWarsaw);
-  getTime(1,timeKijow);
-  getTime(0,timeBerlin);
-  getTime(-6,timeNewYork);
-  getTime(8,timeSydney);
-  getTime(-6,timeToronto);
-  getTime(7,timeTokio);
-  getTime(-1,timeLondon);
-}
+const setAllTimes = () => {
+  getTime(0, time);
+  getTime(0, timeWarsaw);
+  getTime(1, timeKijow);
+  getTime(0, timeBerlin);
+  getTime(-6, timeNewYork);
+  getTime(8, timeSydney);
+  getTime(-6, timeToronto);
+  getTime(7, timeTokio);
+  getTime(-1, timeLondon);
+};
 
-
-setAllTimes()
+setAllTimes();
 setInterval(() => {
-  setAllTimes()
+  setAllTimes();
 }, 1000);
-
-
