@@ -88,44 +88,53 @@ body {
   width: 100%;
 }
 
-.stop-watch{
-width: 100vw;
-display: flex;
-justify-content: center;
-align-items: center;
+.stop-watch {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-height: 100vh;
-background-color:  #E0E0E0;
+  height: 100vh;
+  background-color: #e0e0e0;
 }
-.paragraph-and-buttons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color:  white;
-    width: 800px;
-    height: 500px;
-    margin-left: 100px;
-
+.paragraph-and-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  width: 800px;
+  height: 500px;
+  margin-left: 100px;
 }
-.stop-watch-current-time{
-    text-align: center;
-    font-size: 40px;
+.stop-watch-current-time {
+  text-align: center;
+  font-size: 40px;
 }
-.stop-watch-buttons{
-    margin-bottom: 250px;
+.stop-watch-buttons {
+  position: absolute;
+  top: 200px;
 }
-.reset-button{
-border: none;
-background-color: green;
-color: yellow;
-width: 90px;
-height: 38px;
+.reset-button,
+.new-button {
+  border: none;
+  background-color: green;
+  color: yellow;
+  width: 90px;
+  height: 38px;
 }
-.start-button{
-border: none;
-background-color: yellow;
-color: green;
-width: 90px;
-height: 38px;
+.start-button {
+  border: none;
+  background-color: yellow;
+  color: green;
+  width: 90px;
+  height: 38px;
+}
+.roundSection {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 400px;
 }
