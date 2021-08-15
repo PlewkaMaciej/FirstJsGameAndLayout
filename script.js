@@ -12,6 +12,12 @@ const userLogInPassword = document.querySelector("#SignInPassword");
 const buttonLogIn = document.querySelector(".buttonLogIn");
 const gameMenu = document.querySelector(".menu-container")
 const startGameButton = document.querySelector(".button-start-game")
+const gameview = document.querySelector(".game")
+const nav = document.querySelector("nav")
+const openInGameMenuButton = document.querySelector(".open-menu-button")
+const showInGameMenu = document.querySelector(".in-game-option")
+const BackToMenuButton = document.querySelector(".Back-to-menu-button")
+const ResumeGameButton= document.querySelector(".Resume-game-button")
 let showform = false;
 let showformSignIn = false;
 const showSignIn = () => {
@@ -80,12 +86,36 @@ firebase.auth().onAuthStateChanged(function (user) {
     signInBox.style.display = "none";
     logOutBtn.style.display = "flex";
     signUpBox.style.display = "none";
+    gameMenu.style.display="flex";
   } else {
     console.log("user log out");
     signInBtn.style.display = "inline";
     signUpBtn.style.display = "inline";
     logOutBtn.style.display = "none";
+    gameMenu.style.display="none";
   }
 });
+const showGame = () =>{
+  gameview.style.display="flex"
+nav.style.display="none"
+gameMenu.style.display="none"
+}
+const showMenu = () =>{
+  showInGameMenu.style.display="flex"
+  openInGameMenuButton.style.display="none"
+}
+const showMainMenu = ()=>{
+  gameview.style.display="none"
+  gameMenu.style.display="flex"
+  nav.style.display="flex"
+}
+const ResumeGame= ()=>{
+  showInGameMenu.style.display="none"
+  openInGameMenuButton.style.display="flex"
+}
+startGameButton.addEventListener("click", showGame);
 signInBtn.addEventListener("click", showSignIn);
 signUpBtn.addEventListener("click", showSignUp);
+openInGameMenuButton.addEventListener("click", showMenu);
+BackToMenuButton.addEventListener("click", showMainMenu)
+ResumeGameButton.addEventListener("click", ResumeGame)

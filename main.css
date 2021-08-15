@@ -3,13 +3,15 @@ body {
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(6,5,1,1) 100%);
+  height: 1100px;
 }
 .chicken-game-logo {
   object-fit: cover;
-  width: 17%;
-  height: 17%;
+  width: 250px;
+  height: 180px;
   margin-left: 30px;
   margin-top: 30px;
+  background-color:red
 }
 .nav {
   display: flex;
@@ -71,12 +73,6 @@ body {
   margin-top: 30px;
 }
 .containerSignUp {
-
-  /* background: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
-  ); */
   margin-right: 30%;
   margin-left: 30%;
   height: 300px;
@@ -155,4 +151,86 @@ body {
   font-weight: bolder;
   margin-top: 40px;
   font-size: 22px;
+}
+.game-container{
+  
+  height:800px;
+  width:1300px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-image: url("back3.jpg");
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+}
+.game{
+justify-content: center;
+display: none;
+margin-top: 5%;
+margin-left: 5%;
+}
+.in-game-option{
+  display: none;
+  flex-direction: column;
+}
+.Back-to-menu-button{
+  width: 250px;
+  height: 80px;
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid white;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bolder;
+  margin-top: 40px;
+  font-size: 22px;
+}
+.start-new-game{
+  width: 250px;
+  height: 80px;
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid white;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bolder;
+  margin-top: 40px;
+  font-size: 22px;
+}
+.Resume-game-button{
+  width: 250px;
+  height: 80px;
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid white;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bolder;
+  margin-top: 40px;
+  font-size: 22px;
+}
+.open-menu-button{
+  width: 100px;
+  height: 60px;
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid white;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bolder;
+  margin-top: 40px;
+  font-size: 22px;
+  margin-right: 80%;
+  margin-top: 55%;
+  text-align: center;
+  align-items: center;
+  display: inline;
 }
