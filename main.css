@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(6,5,1,1) 100%);
+}
+.chicken-game-logo {
+  object-fit: cover;
+  width: 17%;
+  height: 17%;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-buttons {
+  margin-right: 30px;
+  margin-top: 30px;
+}
+.signUpBtn {
+  width: 150px;
+  height: 40px;
+  background-color: rgba(68, 30, 255, 0.5);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.signInBtn {
+  width: 150px;
+  height: 40px;
+  background-color: rgba(18, 110, 355, 0.5);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.logOutBtn {
+  width: 150px;
+  height: 40px;
+  background-color: rgba(230, 30, 255, 0.5);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.SignUpForm {
+  margin-top: 100px;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+}   
+.buttonCreateAcc {
+  margin-top: 30px;
+}
+.containerSignUp {
+
+  /* background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  ); */
+  margin-right: 30%;
+  margin-left: 30%;
+  height: 300px;
+  justify-content: center;
+  display: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgba(18, 110, 355, 0.5);
+}
+.buttonCreateAcc {
+  width: 150px;
+  height: 40px;
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid white;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bolder;
+  margin-top: 40px;
+}
+.containerSignIn{
+
+  background-color: rgba(68, 30, 255, 0.5);
+  margin-right: 30%;
+  margin-left: 30%;
+  height: 300px;
+  justify-content: center;
+  display: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.SignInForm{
+    margin-top: 100px;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.buttonLogIn{
+    width: 150px;
+  height: 40px;
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid white;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bolder;
+  margin-top: 40px;
+}
+.menu-container{
+  background-image: url("14de3e7b6765d630ce56318c73302900.gif");
+  margin-right: 30%;
+  margin-left: 30%;
+  height: 700px;
+  justify-content: center;
+  display: flex;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.button-start-game{
+  width: 250px;
+  height: 80px;
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid white;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bolder;
+  margin-top: 40px;
+  font-size: 22px;
+}
