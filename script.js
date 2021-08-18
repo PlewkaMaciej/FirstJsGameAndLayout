@@ -10,38 +10,45 @@ const CreateAccBtn = document.querySelector(".buttonCreateAcc");
 const userLogInEmail = document.querySelector("#SignInEmail");
 const userLogInPassword = document.querySelector("#SignInPassword");
 const buttonLogIn = document.querySelector(".buttonLogIn");
-const gameMenu = document.querySelector(".menu-container")
-const startGameButton = document.querySelector(".button-start-game")
-const gameview = document.querySelector(".game")
-const nav = document.querySelector("nav")
-const openInGameMenuButton = document.querySelector(".open-menu-button")
-const showInGameMenu = document.querySelector(".in-game-option")
-const BackToMenuButton = document.querySelector(".Back-to-menu-button")
-const ResumeGameButton= document.querySelector(".Resume-game-button")
+const gameMenu = document.querySelector(".menu-container");
+const startGameButton = document.querySelector(".button-start-game");
+const gameview = document.querySelector(".game");
+const nav = document.querySelector("nav");
+const openInGameMenuButton = document.querySelector(".open-menu-button");
+const showInGameMenu = document.querySelector(".in-game-option");
+const BackToMenuButton = document.querySelector(".Back-to-menu-button");
+const ResumeGameButton = document.querySelector(".Resume-game-button");
+const StartNewGame = document.querySelector(".start-new-game");
+const PauseGame = document.querySelector(".Pause-game");
 let showform = false;
 let showformSignIn = false;
+let widthOfReso;
+let heightOfReso;
+let leftGameBorder;
+let rightGameBorder;
+let bottomGameBorder;
 const showSignIn = () => {
-    if (showformSignIn === false) {
-      signInBox.style.display = "flex";
-      showformSignIn = true;
-      signUpBox.style.display="none";
-      showform = false;
-    } else {
-        signInBox.style.display = "none";
-      showformSignIn = false;
-    }
-  };
-  const showSignUp = () => {
-    if (showform === false) {
-      signUpBox.style.display = "flex";
-      signInBox.style.display="none";
-      showform = true;
-      showformSignIn = false;
-    } else {
-        signUpBox.style.display = "none";
-      showform = false;
-    }
-  };
+  if (showformSignIn === false) {
+    signInBox.style.display = "flex";
+    showformSignIn = true;
+    signUpBox.style.display = "none";
+    showform = false;
+  } else {
+    signInBox.style.display = "none";
+    showformSignIn = false;
+  }
+};
+const showSignUp = () => {
+  if (showform === false) {
+    signUpBox.style.display = "flex";
+    signInBox.style.display = "none";
+    showform = true;
+    showformSignIn = false;
+  } else {
+    signUpBox.style.display = "none";
+    showform = false;
+  }
+};
 const addUser = () => {
   firebase
     .auth()
@@ -80,42 +87,104 @@ buttonLogIn.addEventListener("click", (e) => {
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     console.log(user);
-    alert("uzytkownik zalogowal sie");
     signInBtn.style.display = "none";
     signUpBtn.style.display = "none";
     signInBox.style.display = "none";
     logOutBtn.style.display = "flex";
     signUpBox.style.display = "none";
-    gameMenu.style.display="flex";
+    gameMenu.style.display = "flex";
   } else {
     console.log("user log out");
     signInBtn.style.display = "inline";
     signUpBtn.style.display = "inline";
     logOutBtn.style.display = "none";
-    gameMenu.style.display="none";
+    gameMenu.style.display = "none";
   }
 });
-const showGame = () =>{
-  gameview.style.display="flex"
-nav.style.display="none"
-gameMenu.style.display="none"
+const showGame = () => {
+  gameview.style.display = "flex";
+  nav.style.display = "none";
+  gameMenu.style.display = "none";
+};
+const showMenu = () => {
+  showInGameMenu.style.display = "flex";
+  openInGameMenuButton.style.display = "none";
+};
+const showMainMenu = () => {
+  gameview.style.display = "none";
+  gameMenu.style.display = "flex";
+  nav.style.display = "flex";
+};
+const ResumeGame = () => {
+  showInGameMenu.style.display = "none";
+  openInGameMenuButton.style.display = "inline";
+};
+const getResolution = () => {
+  widthOfReso = window.innerWidth;
+  heightOfReso = window.innerHeight;
+  leftGameBorder = widthOfReso * 0.18;
+  rightGameBorder = widthOfReso * 0.8;
+  bottomGameBorder = heightOfReso * 0.8;
+};
+getResolution();
+const addChickens = () => {
+  let chicken = document.createElement("div");
+  chicken.classList.add("chicken-style");
+  gameview.appendChild(chicken);
+  getResolution();
+  let xChicken =
+    Math.floor(Math.random() * (rightGameBorder - leftGameBorder)) +
+    leftGameBorder;
+  chicken.style.left = xChicken + "px";
+  moveChickenX(chicken);
+  moveChickenY(chicken);
+};
+const moveChickenX = (chicken) => {
+  let addChickenMoves = 0;
+  let condition=Math.floor(Math.random() * (120 - 30)) + 30;
+  let moveIntervalX = setInterval(() => {
+    let chickenMoveXLeft = -2;
+    let chickenMoveXRight = 2;
+    addChickenMoves += 1;
+    let position = parseFloat(chicken.style.left);
+    if (addChickenMoves < condition) {
+      chicken.style.left = position + chickenMoveXLeft + "px";
+    } else if (addChickenMoves > condition) {
+      chicken.style.left = position + chickenMoveXRight + "px";
+    }
+    if (addChickenMoves === condition*2) {
+      addChickenMoves = 0;
+      condition=Math.floor(Math.random() * (120 - 30)) + 30;
+    }
+  }, 15);
+};
+const moveChickenY = (chicken) =>{
+let moveIntervalY = setInterval(()=>{
+let positionY = parseFloat(chicken.style.top);
+chickenMoveDown = 2;
+chicken.style.bottom = positionY + chickenMoveDown + "px"
+console.log(chicken.style.bottom)
+},15);
+
 }
-const showMenu = () =>{
-  showInGameMenu.style.display="flex"
-  openInGameMenuButton.style.display="none"
-}
-const showMainMenu = ()=>{
-  gameview.style.display="none"
-  gameMenu.style.display="flex"
-  nav.style.display="flex"
-}
-const ResumeGame= ()=>{
-  showInGameMenu.style.display="none"
-  openInGameMenuButton.style.display="flex"
-}
+
+const gameIsStarted = () => {
+  let gamestart = setInterval(() => {
+    addChickens();
+  }, 1000);
+};
+
+const hideMenuIfStartNewGame = () => {
+  showInGameMenu.style.display = "none";
+  openInGameMenuButton.style.display = "inline";
+};
+
 startGameButton.addEventListener("click", showGame);
 signInBtn.addEventListener("click", showSignIn);
 signUpBtn.addEventListener("click", showSignUp);
 openInGameMenuButton.addEventListener("click", showMenu);
-BackToMenuButton.addEventListener("click", showMainMenu)
-ResumeGameButton.addEventListener("click", ResumeGame)
+BackToMenuButton.addEventListener("click", showMainMenu);
+ResumeGameButton.addEventListener("click", ResumeGame);
+StartNewGame.addEventListener("click", gameIsStarted);
+startGameButton.addEventListener("click", gameIsStarted);
+StartNewGame.addEventListener("click", hideMenuIfStartNewGame);

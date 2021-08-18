@@ -1,9 +1,11 @@
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(6,5,1,1) 100%);
-  height: 1100px;
+  cursor: url('Chicken\ Normal\ Select.cur'), auto;
+  height: 100vh;
 }
 .chicken-game-logo {
   object-fit: cover;
@@ -81,6 +83,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
   background-color: rgba(18, 110, 355, 0.5);
+  cursor: url('Chicken\ Normal\ Select.cur'), auto;
 }
 .buttonCreateAcc {
   width: 150px;
@@ -105,6 +108,7 @@ body {
   display: none;
   border-radius: 10px;
   cursor: pointer;
+  cursor: url('Chicken\ Normal\ Select.cur'), auto;
 }
 
 .SignInForm{
@@ -137,6 +141,8 @@ body {
   display: flex;
   border-radius: 10px;
   cursor: pointer;
+  flex-direction: column;
+  cursor: url('Chicken\ Normal\ Select.cur'), auto;
 }
 .button-start-game{
   width: 250px;
@@ -151,23 +157,28 @@ body {
   font-weight: bolder;
   margin-top: 40px;
   font-size: 22px;
+  margin-left:12vw;
+  top:25vh;
+  position: absolute;
 }
 .game-container{
   
-  height:800px;
-  width:1300px;
+  height:80vh;
+  width:70vw;
   border-radius: 10px;
   cursor: pointer;
   background-image: url("back3.jpg");
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
+  cursor: url(Lawgiver.cur), auto;
+  
 }
 .game{
 justify-content: center;
 display: none;
-margin-top: 5%;
 margin-left: 5%;
+
 }
 .in-game-option{
   display: none;
@@ -226,11 +237,80 @@ margin-left: 5%;
   cursor: pointer;
   opacity: 0.9;
   font-weight: bolder;
+  font-size: 22px;
+  margin-right: 60vw;
+  margin-top: 81vh;
+  text-align: center;
+}
+.chicken-style{
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  position: absolute;
+  top: -20px;
+  cursor: url(Lawgiver.cur), auto;
+}
+.heart{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  margin-top: 81vh;
+  left: 42vw;
+}
+.heart2{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  margin-top: 81vh;
+  left:45vw;
+  
+}
+.heart3{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  margin-top: 81vh;
+  left:48vw;
+}
+.yourHealthInfo{
+  position: absolute;
+  margin-top: 82vh;
+  left: 30vw;
+  font-weight: bolder;
+  color: white;
+}
+.Pause-game{
+  position: absolute;
+  width: 150px;
+  height: 60px;
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid white;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bolder;
+  margin-left:50vw;
+  margin-top: 81vh;
+  text-align: center;
+  font-size: 30px;
+}
+.SeeHighscores{
+  width: 250px;
+  height: 80px;
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid white;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bolder;
   margin-top: 40px;
   font-size: 22px;
-  margin-right: 80%;
-  margin-top: 55%;
-  text-align: center;
-  align-items: center;
-  display: inline;
+  margin-left:12vw;
+  top:40vh;
+  position: absolute;
 }
+
