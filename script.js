@@ -125,6 +125,7 @@ const getResolution = () => {
   leftGameBorder = widthOfReso * 0.18;
   rightGameBorder = widthOfReso * 0.8;
   bottomGameBorder = heightOfReso * 0.8;
+  topGameBorder = heightOfReso * -0.02
 };
 getResolution();
 const addChickens = () => {
@@ -136,9 +137,16 @@ const addChickens = () => {
     Math.floor(Math.random() * (rightGameBorder - leftGameBorder)) +
     leftGameBorder;
   chicken.style.left = xChicken + "px";
+  chicken.style.top= topGameBorder + "px"
   moveChickenX(chicken);
   moveChickenY(chicken);
 };
+const moveChickenY = (chicken) =>{
+  let moveIntervalY = setInterval(()=>{
+    let positionY = parseFloat(chicken.style.top);
+    chicken.style.top = positionY + 1 + "px"
+  },15)
+}
 const moveChickenX = (chicken) => {
   let addChickenMoves = 0;
   let condition=Math.floor(Math.random() * (120 - 30)) + 30;
@@ -158,16 +166,6 @@ const moveChickenX = (chicken) => {
     }
   }, 15);
 };
-const moveChickenY = (chicken) =>{
-let moveIntervalY = setInterval(()=>{
-let positionY = parseFloat(chicken.style.top);
-chickenMoveDown = 2;
-chicken.style.bottom = positionY + chickenMoveDown + "px"
-console.log(chicken.style.bottom)
-},15);
-
-}
-
 const gameIsStarted = () => {
   let gamestart = setInterval(() => {
     addChickens();

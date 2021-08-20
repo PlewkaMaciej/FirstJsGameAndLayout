@@ -248,7 +248,9 @@ margin-left: 5%;
   background-color: red;
   position: absolute;
   top: -20px;
+  bottom: auto;
   cursor: url(Lawgiver.cur), auto;
+  
 }
 .heart{
   width: 50px;
