@@ -124,8 +124,8 @@ const getResolution = () => {
   heightOfReso = window.innerHeight;
   leftGameBorder = widthOfReso * 0.18;
   rightGameBorder = widthOfReso * 0.8;
-  bottomGameBorder = heightOfReso * 0.8;
-  topGameBorder = heightOfReso * -0.02
+  bottomGameBorder = heightOfReso * 0.76;
+  topGameBorder = heightOfReso * -0.02;
 };
 getResolution();
 const addChickens = () => {
@@ -137,19 +137,24 @@ const addChickens = () => {
     Math.floor(Math.random() * (rightGameBorder - leftGameBorder)) +
     leftGameBorder;
   chicken.style.left = xChicken + "px";
-  chicken.style.top= topGameBorder + "px"
+  chicken.style.top = topGameBorder + "px";
   moveChickenX(chicken);
   moveChickenY(chicken);
 };
-const moveChickenY = (chicken) =>{
-  let moveIntervalY = setInterval(()=>{
+const moveChickenY = (chicken) => {
+  let moveIntervalY = setInterval(() => {
     let positionY = parseFloat(chicken.style.top);
-    chicken.style.top = positionY + 1 + "px"
-  },15)
-}
+    chicken.style.top = positionY + 1 + "px";
+    let chickenPos = parseFloat(chicken.style.top);
+    if (chickenPos > bottomGameBorder) {
+      clearInterval(moveIntervalY);
+      chicken.remove();
+    }
+  }, 15);
+};
 const moveChickenX = (chicken) => {
   let addChickenMoves = 0;
-  let condition=Math.floor(Math.random() * (120 - 30)) + 30;
+  let condition = Math.floor(Math.random() * (120 - 30)) + 30;
   let moveIntervalX = setInterval(() => {
     let chickenMoveXLeft = -2;
     let chickenMoveXRight = 2;
@@ -160,9 +165,21 @@ const moveChickenX = (chicken) => {
     } else if (addChickenMoves > condition) {
       chicken.style.left = position + chickenMoveXRight + "px";
     }
-    if (addChickenMoves === condition*2) {
+    if (addChickenMoves === condition * 2) {
       addChickenMoves = 0;
-      condition=Math.floor(Math.random() * (120 - 30)) + 30;
+      condition = Math.floor(Math.random() * (120 - 30)) + 30;
+    }
+    let chickenPosX = parseFloat(chicken.style.left);
+    if (chickenPosX < leftGameBorder) {
+      chicken.style.left = position + "px";
+    }
+    if (chickenPosX > rightGameBorder) {
+      chicken.style.left = position + 50+ "px";
+    }
+    let chickenPos = parseFloat(chicken.style.top);
+    if (chickenPos > bottomGameBorder) {
+      clearInterval(moveIntervalX);
+      chicken.remove();
     }
   }, 15);
 };
