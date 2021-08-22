@@ -20,6 +20,11 @@ const BackToMenuButton = document.querySelector(".Back-to-menu-button");
 const ResumeGameButton = document.querySelector(".Resume-game-button");
 const StartNewGame = document.querySelector(".start-new-game");
 const PauseGame = document.querySelector(".Pause-game");
+const Score = document.querySelector(".score");
+const heart = document.querySelector(".heart")
+const heart2 = document.querySelector(".heart2")
+const heart3 = document.querySelector(".heart3")
+let health = 3;
 let showform = false;
 let showformSignIn = false;
 let widthOfReso;
@@ -105,6 +110,8 @@ const showGame = () => {
   gameview.style.display = "flex";
   nav.style.display = "none";
   gameMenu.style.display = "none";
+  health=3;
+  score=0;
 };
 const showMenu = () => {
   showInGameMenu.style.display = "flex";
@@ -119,6 +126,15 @@ const ResumeGame = () => {
   showInGameMenu.style.display = "none";
   openInGameMenuButton.style.display = "inline";
 };
+const openMenuIfLose = ()=>{
+  let openMenuInterval = setInterval(()=>{
+if(health<=0){
+  gameview.style.display="none"
+  gameMenu.style.display="flex"
+}
+  },15)
+}
+openMenuIfLose();
 const getResolution = () => {
   widthOfReso = window.innerWidth;
   heightOfReso = window.innerHeight;
@@ -138,9 +154,11 @@ const addChickens = () => {
     leftGameBorder;
   chicken.style.left = xChicken + "px";
   chicken.style.top = topGameBorder + "px";
+  let position= parseFloat(chicken.style.top)
   moveChickenX(chicken);
   moveChickenY(chicken);
 };
+let point = 0;
 const moveChickenY = (chicken) => {
   let moveIntervalY = setInterval(() => {
     let positionY = parseFloat(chicken.style.top);
@@ -149,9 +167,23 @@ const moveChickenY = (chicken) => {
     if (chickenPos > bottomGameBorder) {
       clearInterval(moveIntervalY);
       chicken.remove();
+      health = health -1;
+      console.log(health)
+    }
+    if(health<=0){
+      clearInterval(moveIntervalY)
     }
   }, 15);
+  chicken.addEventListener("click", (event) => {
+    if (event.target.classList.value === "chicken-style") {
+      event.target.remove();
+      point = point + 1;
+      clearInterval(moveIntervalY)
+    }
+    Score.innerText = point;
+  });
 };
+
 const moveChickenX = (chicken) => {
   let addChickenMoves = 0;
   let condition = Math.floor(Math.random() * (120 - 30)) + 30;
@@ -165,6 +197,9 @@ const moveChickenX = (chicken) => {
     } else if (addChickenMoves > condition) {
       chicken.style.left = position + chickenMoveXRight + "px";
     }
+    if(health<=0){
+      clearInterval(moveIntervalX)
+    }
     if (addChickenMoves === condition * 2) {
       addChickenMoves = 0;
       condition = Math.floor(Math.random() * (120 - 30)) + 30;
@@ -174,32 +209,43 @@ const moveChickenX = (chicken) => {
       chicken.style.left = position + "px";
     }
     if (chickenPosX > rightGameBorder) {
-      chicken.style.left = position + 50+ "px";
+      chicken.style.left = position + "px";
     }
     let chickenPos = parseFloat(chicken.style.top);
     if (chickenPos > bottomGameBorder) {
       clearInterval(moveIntervalX);
       chicken.remove();
     }
+    if(health===2){
+      heart3.style.display="none"
+    }
+    if(health===1){
+      heart2.style.display="none"
+    }
+    if(health===0){
+      heart.style.display="none"
+    }
+    chicken.addEventListener("click", (event) => {
+      if (event.target.classList.value === "chicken-style") {
+        event.target.remove();
+      }
+      
+    });
   }, 15);
 };
 const gameIsStarted = () => {
   let gamestart = setInterval(() => {
     addChickens();
+    if(health<=0){
+clearInterval(gamestart)
+    }
+    
   }, 1000);
 };
-
-const hideMenuIfStartNewGame = () => {
-  showInGameMenu.style.display = "none";
-  openInGameMenuButton.style.display = "inline";
-};
-
 startGameButton.addEventListener("click", showGame);
 signInBtn.addEventListener("click", showSignIn);
 signUpBtn.addEventListener("click", showSignUp);
 openInGameMenuButton.addEventListener("click", showMenu);
 BackToMenuButton.addEventListener("click", showMainMenu);
 ResumeGameButton.addEventListener("click", ResumeGame);
-StartNewGame.addEventListener("click", gameIsStarted);
 startGameButton.addEventListener("click", gameIsStarted);
-StartNewGame.addEventListener("click", hideMenuIfStartNewGame);

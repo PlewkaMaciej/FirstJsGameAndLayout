@@ -171,7 +171,12 @@ body {
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  cursor: url(Lawgiver.cur), auto;
+  cursor: url(tommy\ gun.cur), auto;
+  user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
   
 }
 .game{
@@ -241,6 +246,11 @@ margin-left: 5%;
   margin-right: 60vw;
   margin-top: 81vh;
   text-align: center;
+  user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
 }
 .chicken-style{
   width: 40px;
@@ -249,7 +259,7 @@ margin-left: 5%;
   position: absolute;
   top: -20px;
   bottom: auto;
-  cursor: url(Lawgiver.cur), auto;
+  cursor: url(tommy\ gun.cur), auto;
   
 }
 .heart{
@@ -258,6 +268,11 @@ margin-left: 5%;
   position: absolute;
   margin-top: 81vh;
   left: 42vw;
+  user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
 }
 .heart2{
   width: 50px;
@@ -265,6 +280,11 @@ margin-left: 5%;
   position: absolute;
   margin-top: 81vh;
   left:45vw;
+  user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
   
 }
 .heart3{
@@ -273,6 +293,11 @@ margin-left: 5%;
   position: absolute;
   margin-top: 81vh;
   left:48vw;
+  user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
 }
 .yourHealthInfo{
   position: absolute;
@@ -280,6 +305,11 @@ margin-left: 5%;
   left: 30vw;
   font-weight: bolder;
   color: white;
+  user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
 }
 .Pause-game{
   position: absolute;
@@ -297,6 +327,11 @@ margin-left: 5%;
   margin-top: 81vh;
   text-align: center;
   font-size: 30px;
+  user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
 }
 .SeeHighscores{
   width: 250px;
@@ -315,4 +350,44 @@ margin-left: 5%;
   top:40vh;
   position: absolute;
 }
-
+.img-score{
+  position: absolute;
+  width: 150px;
+  height: 60px;
+  background: none;
+  padding: 14px 20px;
+  margin: 8px 0;
+  opacity: 0.9;
+  left:30vw;
+  margin-top: 85vh;
+  border: none;
+  user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+}
+.your-points{
+  position: absolute;
+  left:40vw;
+  margin-top: 88vh;
+  font-size: 22px;
+  color: white;
+  user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+}
+.score{
+  position: absolute;
+  left:46.5vw;
+  margin-top: 88vh;
+  font-size: 22px;
+  color: white;
+  user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+}
