@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+}
+
+.vertical-navbar {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 100px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #303030; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  margin-top: 80px;
+}
+.horizontal-navbar {
+  height: 80px;
+  position: fixed;
+  background-color: #007abc;
+  width: 100%;
+  overflow-y: hidden;
+}
+.klasa {
+  height: 1000px;
+}
+.navbar-menu {
+  display: flex;
+
+  align-items: center;
+}
+.navbar-settings {
+  font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.horizontal-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-menu {
+  color: white;
+  margin-left: 30px;
+}
+.navbar-settings {
+  margin-right: 80px;
+}
+.paragraph-navbar {
+  margin-left: 25px;
+  font-size: 20px;
+}
+.button-icons {
+  width: 60px;
+  height: 60px;
+}
+.nav-buttons {
+  background-color: #303030;
+  color: white;
+  border: none;
+  margin-top: 10px;
+  border-bottom: 1px solid gray;
+  font-size: 15px;
+  font-style: italic;
+}
+.nav-buttonss {
+  background-color: #303030;
+  color: white;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 15px;
+  font-style: italic;
+}
+.border {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+.time-container {
+   background-color:  #E0E0E0;
+  display: flex;
+  justify-content: center;
+}
+
+.container-heading {
+  font-weight: bolder;
+  font-size: 40px;
+  margin-top: 100px;
+  color: #303030;
+}
+#time {
+  font-family: sans-serif;
+  font-size: 40px;
+  color: #303030;
+  margin-left: 30px;
+}
+
+.time-setup-containter {
+    width: 350px;
+    height: 200px;
+    background-color: white;
+    margin-right: 50px;
+}
+.setup-time {
+  justify-content: center;
+  align-items: center;
+}
+.more-countries-time-container{
+    justify-content: center;
+    display: flex;
+  
+    
+   
+}
+.warsaw{
+    margin-left: 150px;
+}
+.time-all-countries{
+    height: 720px;
+    background-color:  #E0E0E0;
+}
+.more-countries-time-containers2{
+    justify-content: center;
+    display: flex;
+    margin-top: 50px;
+}
+.newyork{
+    margin-left: 150px;
+}
+.more-countries-headings{
+    display: flex;
+    justify-content: center;
+    color: #303030;
+    font-style: italic;
+}
+.border{
+    border-top: solid 1px #E0E0E0;
+}
+.more-country-time-paragraph{
+    font-style: italic;
+    color: #303030;
+    margin-top: 40px;
+    font-size: 22px;
+}
+.parapgraph-time{
+    justify-content: center;
+    display: flex;
+}

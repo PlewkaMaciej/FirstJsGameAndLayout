@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+}
+
+.vertical-navbar {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 100px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #303030; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  margin-top: 80px;
+}
+.horizontal-navbar {
+  height: 80px;
+  position: fixed;
+  background-color: #007abc;
+  width: 100%;
+  overflow-y: hidden;
+}
+.klasa {
+  height: 1000px;
+}
+.navbar-menu {
+  display: flex;
+
+  align-items: center;
+}
+.navbar-settings {
+  font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.horizontal-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-menu {
+  color: white;
+  margin-left: 30px;
+}
+.navbar-settings {
+  margin-right: 80px;
+}
+.paragraph-navbar {
+  margin-left: 25px;
+  font-size: 20px;
+}
+.button-icons {
+  width: 60px;
+  height: 60px;
+}
+.nav-buttons {
+  background-color: #303030;
+  color: white;
+  border: none;
+  margin-top: 10px;
+  border-bottom: 1px solid gray;
+  font-size: 15px;
+  font-style: italic;
+}
+.nav-buttonss {
+  background-color: #303030;
+  color: white;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 15px;
+  font-style: italic;
+}
+.border {
+  height: 1000px;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+}
+.time-container {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.stop-watch {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  background-color: #e0e0e0;
+}
+.paragraph-and-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  width: 800px;
+  height: 500px;
+  margin-left: 100px;
+}
+.stop-watch-current-time {
+  text-align: center;
+  font-size: 40px;
+}
+.stop-watch-buttons {
+  position: absolute;
+  top: 200px;
+}
+.reset-button,
+.new-button {
+  border: none;
+  background-color: green;
+  color: yellow;
+  width: 90px;
+  height: 38px;
+}
+.start-button {
+  border: none;
+  background-color: yellow;
+  color: green;
+  width: 90px;
+  height: 38px;
+}
+.roundSection {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 400px;
+}
