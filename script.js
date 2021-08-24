@@ -20,10 +20,12 @@ const BackToMenuButton = document.querySelector(".Back-to-menu-button");
 const ResumeGameButton = document.querySelector(".Resume-game-button");
 const StartNewGame = document.querySelector(".start-new-game");
 const PauseGame = document.querySelector(".Pause-game");
+const unpause = document.querySelector(".Unpause");
 const Score = document.querySelector(".score");
-const heart = document.querySelector(".heart")
-const heart2 = document.querySelector(".heart2")
-const heart3 = document.querySelector(".heart3")
+const heart = document.querySelector(".heart");
+const heart2 = document.querySelector(".heart2");
+const heart3 = document.querySelector(".heart3");
+let point=0;
 let health = 3;
 let showform = false;
 let showformSignIn = false;
@@ -32,6 +34,9 @@ let heightOfReso;
 let leftGameBorder;
 let rightGameBorder;
 let bottomGameBorder;
+let pauseStart = 0;
+let pauseStart2 = 0;
+let chickenlist = [];
 const showSignIn = () => {
   if (showformSignIn === false) {
     signInBox.style.display = "flex";
@@ -110,37 +115,57 @@ const showGame = () => {
   gameview.style.display = "flex";
   nav.style.display = "none";
   gameMenu.style.display = "none";
-  health=3;
-  score=0;
+  point=0;
+  health = 3;
+  chickenlist=[];
+  if (health === 3) {
+    heart.style.display = "inline";
+    heart2.style.display = "inline";
+    heart3.style.display = "inline";
+  }
+  pauseStart = 0;
 };
+
 const showMenu = () => {
   showInGameMenu.style.display = "flex";
   openInGameMenuButton.style.display = "none";
+  BackToMenuButton.style.display = "inline";
+  ResumeGameButton.style.display = "inline";
+};
+const showGameMenu = () => {
+  BackToMenuButton.style.display = "none";
+  ResumeGameButton.style.display = "none";
+  openInGameMenuButton.style.display = "inline";
 };
 const showMainMenu = () => {
   gameview.style.display = "none";
   gameMenu.style.display = "flex";
   nav.style.display = "flex";
+  if (gameMenu.style.display === "flex") {
+    health = 0;
+    point=0;
+  }
 };
 const ResumeGame = () => {
   showInGameMenu.style.display = "none";
   openInGameMenuButton.style.display = "inline";
 };
-const openMenuIfLose = ()=>{
-  let openMenuInterval = setInterval(()=>{
-if(health<=0){
-  gameview.style.display="none"
-  gameMenu.style.display="flex"
-}
-  },15)
-}
+const openMenuIfLose = () => {
+  let openMenuInterval = setInterval(() => {
+    if (health <= 0) {
+      gameview.style.display = "none";
+      gameMenu.style.display = "flex";
+      point=0;
+    }
+  }, 15);
+};
 openMenuIfLose();
 const getResolution = () => {
   widthOfReso = window.innerWidth;
   heightOfReso = window.innerHeight;
-  leftGameBorder = widthOfReso * 0.18;
-  rightGameBorder = widthOfReso * 0.8;
-  bottomGameBorder = heightOfReso * 0.76;
+  leftGameBorder = widthOfReso * 0.19;
+  rightGameBorder = widthOfReso * 0.78;
+  bottomGameBorder = heightOfReso * 0.735;
   topGameBorder = heightOfReso * -0.02;
 };
 getResolution();
@@ -154,11 +179,12 @@ const addChickens = () => {
     leftGameBorder;
   chicken.style.left = xChicken + "px";
   chicken.style.top = topGameBorder + "px";
-  let position= parseFloat(chicken.style.top)
+  let position = parseFloat(chicken.style.top);
+  chickenlist.push(chicken)
   moveChickenX(chicken);
   moveChickenY(chicken);
+  switchUnpauseToPause();
 };
-let point = 0;
 const moveChickenY = (chicken) => {
   let moveIntervalY = setInterval(() => {
     let positionY = parseFloat(chicken.style.top);
@@ -167,18 +193,22 @@ const moveChickenY = (chicken) => {
     if (chickenPos > bottomGameBorder) {
       clearInterval(moveIntervalY);
       chicken.remove();
-      health = health -1;
-      console.log(health)
+      health = health - 1;
+      console.log(health);
+      chickenlist = chickenlist.pop();
     }
-    if(health<=0){
-      clearInterval(moveIntervalY)
+    if (health <= 0) {
+      clearInterval(moveIntervalY);
+    }
+    if (pauseStart === 1) {
+      clearInterval(moveIntervalY);
     }
   }, 15);
   chicken.addEventListener("click", (event) => {
     if (event.target.classList.value === "chicken-style") {
       event.target.remove();
       point = point + 1;
-      clearInterval(moveIntervalY)
+      clearInterval(moveIntervalY);
     }
     Score.innerText = point;
   });
@@ -197,8 +227,12 @@ const moveChickenX = (chicken) => {
     } else if (addChickenMoves > condition) {
       chicken.style.left = position + chickenMoveXRight + "px";
     }
-    if(health<=0){
-      clearInterval(moveIntervalX)
+    if (health <= 0) {
+      chicken.remove();
+      clearInterval(moveIntervalX);
+    }
+    if (health > 0) {
+      gameMenu.style.display = "none";
     }
     if (addChickenMoves === condition * 2) {
       addChickenMoves = 0;
@@ -216,31 +250,61 @@ const moveChickenX = (chicken) => {
       clearInterval(moveIntervalX);
       chicken.remove();
     }
-    if(health===2){
-      heart3.style.display="none"
+    if (health === 2) {
+      heart3.style.display = "none";
     }
-    if(health===1){
-      heart2.style.display="none"
+    if (health === 1) {
+      heart2.style.display = "none";
     }
-    if(health===0){
-      heart.style.display="none"
+    if (health === 0) {
+      heart.style.display = "none";
     }
     chicken.addEventListener("click", (event) => {
       if (event.target.classList.value === "chicken-style") {
         event.target.remove();
       }
-      
     });
+    if (pauseStart === 1) {
+      clearInterval(moveIntervalX);
+    }
   }, 15);
 };
 const gameIsStarted = () => {
+  point=0;
+  Score.innerText = point;
   let gamestart = setInterval(() => {
-    addChickens();
-    if(health<=0){
-clearInterval(gamestart)
+    if (pauseStart === 1) {
+      clearInterval(gamestart);
     }
-    
+    addChickens();
+    if (health <= 0) {
+      clearInterval(gamestart);
+    }
   }, 1000);
+};
+const pause = () => {
+  pauseStart = 1;
+};
+// const unpauseGame = () => {
+//   pauseStart = 2;
+//   if(pauseStart===2){
+//     chickenlist.forEach((chicken) => {
+//     gameIsStarted(chicken);
+//     moveChickenX(chicken);
+//     moveChickenY(chicken);
+//   })
+// }
+// };
+
+const switchUnpauseToPause = () => {
+  if (pauseStart === 1) {
+    PauseGame.style.display = "none";
+    unpause.style.display = "inline";
+  }
+  if (pauseStart === 0) {
+    PauseGame.style.display = "inline";
+    unpause.style.display = "none";
+  }
 };
 startGameButton.addEventListener("click", showGame);
 signInBtn.addEventListener("click", showSignIn);
@@ -249,3 +313,6 @@ openInGameMenuButton.addEventListener("click", showMenu);
 BackToMenuButton.addEventListener("click", showMainMenu);
 ResumeGameButton.addEventListener("click", ResumeGame);
 startGameButton.addEventListener("click", gameIsStarted);
+startGameButton.addEventListener("click", showGameMenu);
+PauseGame.addEventListener("click", pause);
+// unpause.addEventListener("click", unpauseGame);

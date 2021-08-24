@@ -253,13 +253,19 @@ margin-left: 5%;
         -o-user-select: none;
 }
 .chicken-style{
-  width: 40px;
-  height: 40px;
-  background-color: red;
+  width: 70px;
+  height: 70px;
   position: absolute;
   top: -20px;
   bottom: auto;
+  background-image: url("chicken442.png");
   cursor: url(tommy\ gun.cur), auto;
+  background-repeat: no-repeat;
+  user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
   
 }
 .heart{
@@ -386,6 +392,35 @@ margin-left: 5%;
   font-size: 22px;
   color: white;
   user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+}
+.button-for-pause{
+  width: 0px;
+  height: 0px;
+  border: none;
+  display: none;
+}
+.Unpause{
+  position: absolute;
+  width: 150px;
+  height: 60px;
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid white;
+  cursor: pointer;
+  opacity: 0.9;
+  font-weight: bolder;
+  margin-left:30vw;
+  margin-top: 81vh;
+  text-align: center;
+  font-size: 30px;
+  user-select: none;
+  display:none;
         -moz-user-select: none;
         -khtml-user-select: none;
         -webkit-user-select: none;
