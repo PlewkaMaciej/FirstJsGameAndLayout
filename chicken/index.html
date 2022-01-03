@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAil1G0jSiUEQbbrDdXRQR2W--owfAcmvA",
+        authDomain: "chicken-game-pro.firebaseapp.com",
+        projectId: "chicken-game-pro",
+        storageBucket: "chicken-game-pro.appspot.com",
+        messagingSenderId: "720779102412",
+        appId: "1:720779102412:web:6bef922782c781d1101a69",
+      };
+    </script>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body>
+    <nav class="nav">
+      <img class="chicken-game-logo" src="chicken-party-slot-game-logo.png" alt="chicken-logo" />
+      <div class="nav-buttons">
+        <button class="signUpBtn">Sign up</button>
+        <button class="signInBtn">Sign in</button>
+        <button class="logOutBtn">Log out</button>
+      </div>
+    </nav>
+    <div class="containerSignUp">
+      <form class="SignUpForm">
+        <label>Email</label>
+        <input type="email" id="SignUpEmail" name="email2" value="" />
+        <label>Password</label>
+        <input type="password" id="SignUpPassword" name="Password" value="" />
+        <div>
+          <button class="buttonCreateAcc">Create Account</button>
+        </div>
+      </form>
+    </div>
+    <div class="containerSignIn">
+        <form class="SignInForm">
+            <label>Email</label>
+            <input type="email" id="SignInEmail" name="SignEmail" value="" />
+            <label>Password</label>
+            <input type="password" id="SignInPassword" name="EmailSignIn" value="" />
+            <div>
+                <button class="buttonLogIn">Log In</button>
+            </div>
+        </form>
+    </div>
+    <div class="menu-container">
+<button class="button-start-game">Play Game</button>
+<button class="SeeHighscores">Highscores</button>
+    </div>
+  <div class="game"> 
+<div class="game-container">
+  <button class="open-menu-button"> Menu</button>
+  <button class="Pause-game">Pause</button>
+  <button class="Unpause">Unpause</button>
+  <h1 class="yourHealthInfo">Your Health:</h1>
+  <img class="img-score" src="points-icon-0.jpg" alt="points">
+  <p class="your-points">Your score:</p>
+  <p class="score">0</p>
+  <img class ="heart" src="heart.png" alt="heart">
+  <img class ="heart2" src="heart.png" alt="heart">
+  <img class ="heart3" src="heart.png" alt="heart">
+  <div class="in-game-option">
+    <button class="Back-to-menu-button">End Game and back to Main Menu</button>
+    <button class="Resume-game-button">Resume</button>
+  </div>
+</div>
+</div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
